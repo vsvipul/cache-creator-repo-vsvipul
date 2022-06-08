@@ -1,0 +1,22 @@
+{
+  "name": "private-user-repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kotewar/private-user-repo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kotewar/private-user-repo/issues"
+  },
+  "homepage": "https://github.com/kotewar/private-user-repo#readme",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
+}
