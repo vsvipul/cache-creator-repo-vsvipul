@@ -6,11 +6,7 @@ on:
 jobs:
   build:
     name: Build Test
-    strategy:
-      matrix:
-        runs-on: [ubuntu-latest, windows-latest, macos-latest]
-      fail-fast: true
-    runs-on: ${{ matrix.runs-on }}
+    runs-on: [ubuntu-latest, windows-latest, macos-latest]
     steps:
     - name: Get current date
       id: date
