@@ -1,6 +1,8 @@
 name: Test Compression
 on:
   push:
+  schedule:
+  - cron: "*/5 * * * *"
 jobs:
   build:
     name: Build Test
@@ -10,6 +12,9 @@ jobs:
       fail-fast: true
     runs-on: ${{ matrix.runs-on }}
     steps:
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
     - uses: actions/checkout@v2
     - uses: actions/github-script@v5
       with:
@@ -21,5 +26,5 @@ jobs:
       id: cache
       with:
         path: ${{ github.workspace }}/node_modules
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json')-${{ steps.date.outputs.date }} }}
+        restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json')-${{ steps.date.outputs.date }} }}
