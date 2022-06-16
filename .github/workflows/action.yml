@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: NPM install
       run: |
-        ls
+        pwd
         npm install
     - name: Get current date
       id: date
