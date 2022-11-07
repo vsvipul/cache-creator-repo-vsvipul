@@ -17,7 +17,7 @@ jobs:
       run: |
         pwd
         npm install
-    - uses: kotewar/cache@b5371fce0930ac6da5710d48c3f0545a8d343d07
+    - uses: actions/cache@41d6593f2967eeeb3a9c473b43e66a62170c6122
       id: cache
       with:
         path: ${{ github.workspace }}/node_modules
