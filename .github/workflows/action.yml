@@ -16,7 +16,7 @@ jobs:
       run: |
         pwd
         npm install
-    - uses: actions/cache@d0a7bd4a48db05f049b89868bb9638059e85aa9d
+    - uses: actions/cache@ef0bfb89b3fe1090da4d6efd187ba049e38966cf
       id: cache
       with:
         path: ${{ github.workspace }}/node_modules
