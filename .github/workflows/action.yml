@@ -16,10 +16,10 @@ jobs:
       run: |
         pwd
         npm install
-    - uses: actions/cache@87f8adaee4cb8932e50a526ccb5f8ba7f22a6e22
+    - uses: actions/cache@a9df2ab20d8b2ef91bb85f163b6c5821403373b4
       id: cache
       with:
         path: ${{ github.workspace }}/node_modules
         key: ${{ steps.date.outputs.date }} 
         restore-keys: ${{ steps.date.outputs.date }}
-        skip-save: "true"
+        skip-save: true
