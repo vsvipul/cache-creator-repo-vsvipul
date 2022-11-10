@@ -20,6 +20,6 @@ jobs:
       id: cache
       with:
         path: ${{ github.workspace }}/node_modules
-        key: ${{ steps.date.outputs.date }} 
-        restore-keys: ${{ steps.date.outputs.date }}
+        key: hard-code
+        restore-keys: hard-code
         skip-save: 'no'
