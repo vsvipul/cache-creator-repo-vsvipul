@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     name: Build Test
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: Get current date
       id: date
@@ -16,7 +16,7 @@ jobs:
       run: |
         pwd
         npm install
-    - uses: actions/cache@kotewar/poc
+    - uses: actions/cache@v3
       id: cache
       with:
         path: ${{ github.workspace }}/node_modules
