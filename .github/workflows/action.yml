@@ -16,7 +16,7 @@ jobs:
       run: |
         pwd
         npm install
-    - uses: tanuj077/cache/restore@main
+    - uses: tanuj077/cache@main
       id: cache
       with:
         path: ${{ github.workspace }}/node_modules
