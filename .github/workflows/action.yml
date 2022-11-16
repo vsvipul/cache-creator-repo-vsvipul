@@ -22,4 +22,4 @@ jobs:
         path: ${{ github.workspace }}/node_modules
         key: hard-code-new
         restore-keys: hard-code-new
-        skip-save: 'yes'
+        skip-restore: 'yes'
