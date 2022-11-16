@@ -23,4 +23,4 @@ jobs:
         key: hard-code-new1234
         restore-keys: absent
         skip-restore: 'yes'
-        skip-save: 'no'
+        skip-save: 'yes'
