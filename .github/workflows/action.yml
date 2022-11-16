@@ -21,6 +21,6 @@ jobs:
       with:
         path: ${{ github.workspace }}/node_modules
         key: hard-code-new12345
-        restore-keys: absent
+        restore-keys: hard-code123
         skip-restore: 'yes'
         skip-save: 'yes'
