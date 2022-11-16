@@ -20,6 +20,6 @@ jobs:
       id: cache
       with:
         path: ${{ github.workspace }}/node_modules
-        key: hard-code-new
+        key: hard-code-new1
         restore-keys: hard-code-new
         skip-restore: 'yes'
