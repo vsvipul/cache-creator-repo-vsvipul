@@ -15,6 +15,7 @@ jobs:
     - name: NPM install
       run: |
         pwd
+        exit 1
         npm install
     - uses: tanuj077/cache@main
       id: cache
