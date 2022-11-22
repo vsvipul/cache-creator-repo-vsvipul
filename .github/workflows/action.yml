@@ -17,7 +17,7 @@ jobs:
       with:
         path: ${{ github.workspace }}/node_modules
         key: hard-code1
-        restore-keys: hard-co
+        restore-keys: hard-cor
         strict-restore: yes
     - name: NPM install
       run: |
