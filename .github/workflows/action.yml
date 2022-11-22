@@ -2,8 +2,7 @@ name: Test Compression
 on:
   push:
   workflow_dispatch:
-env:
-  SAVE_CACHE_ON_ANY_FAILURE: yes
+
 jobs:
   build:
     name: Build Test
@@ -18,12 +17,10 @@ jobs:
       with:
         path: ${{ github.workspace }}/node_modules
         key: hard-code-new12345
-        restore-keys: hard-code123
+        restore-keys: hard-cod
+        strict-restore: yes
     - name: NPM install
       run: |
         pwd
         npm install
-    - name: Induce error
-      id: error-job
-      run: exit 1
   
