@@ -3,7 +3,7 @@ on:
   push:
   workflow_dispatch:
 env:
-  SAVE_CACHE_ON_ANY_FAILURE: 'yes'
+  SAVE_CACHE_ON_ANY_FAILURE: yes
 jobs:
   build:
     name: Build Test
