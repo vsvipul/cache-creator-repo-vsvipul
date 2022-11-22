@@ -13,6 +13,12 @@ jobs:
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
     - uses: actions/checkout@v2
+    - uses: tanuj077/cache@main
+      id: cache
+      with:
+        path: ${{ github.workspace }}/node_modules
+        key: hard-code-new12345
+        restore-keys: hard-code123
     - name: NPM install
       run: |
         pwd
@@ -20,9 +26,4 @@ jobs:
     - name: Induce error
       id: error-job
       run: exit 1
-    - uses: tanuj077/cache@main
-      id: cache
-      with:
-        path: ${{ github.workspace }}/node_modules
-        key: hard-code-new12345
-        restore-keys: hard-code123
+  
