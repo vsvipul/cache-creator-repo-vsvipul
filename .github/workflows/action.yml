@@ -2,7 +2,8 @@ name: Test Compression
 on:
   push:
   workflow_dispatch:
-
+env:
+  SAVE_CACHE_ON_ANY_FAILURE: 'yes'
 jobs:
   build:
     name: Build Test
@@ -19,12 +20,9 @@ jobs:
     - name: Induce error
       id: error-job
       run: exit 1
-      continue-on-error: true
     - uses: tanuj077/cache@main
       id: cache
       with:
         path: ${{ github.workspace }}/node_modules
         key: hard-code-new12345
         restore-keys: hard-code123
-        skip-restore: 'yes'
-        skip-save: 'yes'
