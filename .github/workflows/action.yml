@@ -16,8 +16,8 @@ jobs:
       id: cache
       with:
         path: ${{ github.workspace }}/node_modules
-        key: hard-code-new12345
-        restore-keys: hard-cod
+        key: hard-code1
+        restore-keys: hard-co
         strict-restore: yes
     - name: NPM install
       run: |
