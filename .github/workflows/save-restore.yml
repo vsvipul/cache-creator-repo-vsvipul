@@ -31,4 +31,5 @@ jobs:
           key: cache-key-new
       - name: Get Outputs
         run: | 
-            echo "${{ steps.cache-restore.outputs.*, '\n' }}"
+            echo "${{ steps.cache-restore.outputs.key}}"
+            echo "${{ steps.cache-restore.outputs.matched-key}}"
