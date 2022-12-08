@@ -32,4 +32,4 @@ jobs:
       - name: Get Outputs
         run: | 
             echo "${{ steps.cache-restore.outputs.CACHE_KEY }}"
-            echo "${{ steps.cache-restore.outputs.matched-key }}"
+            echo "${{ steps.cache-restore.outputs.CACHE_RESULT }}"
