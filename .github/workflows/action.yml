@@ -12,7 +12,7 @@ jobs:
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
     - uses: actions/checkout@v2
-    - uses: tanuj077/cache@main
+    - uses: actions/cache@tanuj077/save-changes
       id: cache
       with:
         path: ${{ github.workspace }}/node_modules
