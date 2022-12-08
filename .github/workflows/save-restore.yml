@@ -29,3 +29,6 @@ jobs:
         with:
           path: ${{ github.workspace }}/node_modules
           key: cache-key-new
+      - name: Get Outputs
+        run: | 
+            echo "{{ steps.cache-restore.outputs.*, '\n' }}"
