@@ -1,0 +1,32 @@
+name: Save and restore
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date
+        shell: bash
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
+      - uses: actions/checkout@v2
+      - uses: actions/cache/restore@kotewar/save-changes
+        id: cache-restore
+        with:
+          path: ${{ github.workspace }}/node_modules
+          key: cache-key-doesnot-exist
+          restore-keys: |
+            cache-key-doesnot-
+      - name: NPM install
+        shell: bash
+        run: |
+          pwd
+          npm install
+      - uses: actions/cache/save@kotewar/save-changes
+        id: cache-save
+        with:
+          path: ${{ github.workspace }}/node_modules
+          key: cache-key-date-${{ steps.date.outputs.date }}
