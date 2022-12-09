@@ -17,7 +17,8 @@ jobs:
         id: cache-restore
         with:
           path: ${{ github.workspace }}/node_modules
-          key: cache-key
+          key: doesnotexists
+          restore-keys: cache-ke
       - name: NPM install
         shell: bash
         run: |
@@ -27,4 +28,4 @@ jobs:
         id: cache-save
         with:
           path: ${{ github.workspace }}/node_modules
-          key: cache-key
+          key: cache-key-new-entry
