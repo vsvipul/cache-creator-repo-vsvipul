@@ -1,0 +1,26 @@
+name: Skip save, only restore
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date
+        shell: bash
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
+      - uses: actions/checkout@v2
+      - uses: kotewar/cache/restore@kotewar/save-changes
+        id: cache-restore
+        with:
+          path: ${{ github.workspace }}/node_modules
+          key: key-not-present
+      - name: NPM install
+        shell: bash
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: |
+          pwd
+          npm install
