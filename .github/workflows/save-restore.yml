@@ -13,7 +13,7 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
       - uses: actions/checkout@v2
-      - uses: actions/cache/restore@kotewar/save-changes
+      - uses: actions/cache/restore@700-actionscache-granular-cache-control
         id: cache-restore
         with:
           path: ${{ github.workspace }}/node_modules
@@ -24,12 +24,12 @@ jobs:
         run: |
           pwd
           npm install
-      - uses: actions/cache/save@kotewar/save-changes
+      - uses: actions/cache/save@700-actionscache-granular-cache-control
         id: cache-save
         with:
           path: ${{ github.workspace }}/node_modules
-          key: ${{ steps.cache-restore.outputs.CACHE_KEY }}-notattempted
+          key: ${{ steps.cache-restore.outputs.inputted-key }}-saverestore
       - name: Get Outputs
         run: | 
-            echo "${{ steps.cache-restore.outputs.CACHE_KEY }}"
-            echo "${{ steps.cache-restore.outputs.CACHE_RESULT }}"
+            echo "${{ steps.cache-restore.outputs.inputted-key }}"
+            echo "${{ steps.cache-restore.outputs.matched-key }}"
