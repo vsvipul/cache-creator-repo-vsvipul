@@ -13,19 +13,23 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
       - uses: actions/checkout@v2
-      - uses: actions/cache/restore@kotewar/save-changes
+      - uses: actions/cache/restore-only@kotewar/save-changes
         id: cache-restore
         with:
           path: ${{ github.workspace }}/node_modules
-          key: doesnotexists
-          restore-keys: cache-ke
+          key: cache-key
+          restore-keys: cache-key-
       - name: NPM install
         shell: bash
         run: |
           pwd
           npm install
-      - uses: actions/cache/save@kotewar/save-changes
+      - uses: actions/cache/save-only@kotewar/save-changes
         id: cache-save
         with:
           path: ${{ github.workspace }}/node_modules
-          key: cache-key-new-entry
+          key: ${{ steps.cache-restore.outputs.CACHE_KEY }}-1
+      - name: Get Outputs
+        run: | 
+            echo "${{ steps.cache-restore.outputs.CACHE_KEY }}"
+            echo "${{ steps.cache-restore.outputs.CACHE_RESULT }}"
