@@ -13,7 +13,7 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
       - uses: actions/checkout@v2
-      - uses: kotewar/cache/restore@kotewar/save-changes
+      - uses: actions/cache/restore@kotewar/save-changes
         id: cache-restore
         with:
           path: ${{ github.workspace }}/node_modules
