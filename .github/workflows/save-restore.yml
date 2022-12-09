@@ -28,7 +28,7 @@ jobs:
         id: cache-save
         with:
           path: ${{ github.workspace }}/node_modules
-          key: ${{ steps.cache-restore.outputs.CACHE_KEY }}-1
+          key: ${{ steps.cache-restore.outputs.CACHE_KEY }}-notattempted
       - name: Get Outputs
         run: | 
             echo "${{ steps.cache-restore.outputs.CACHE_KEY }}"
