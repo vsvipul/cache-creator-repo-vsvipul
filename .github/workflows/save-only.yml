@@ -1,7 +1,8 @@
-name: Skip restore, only save
+name: Skip save, only restore
 on:
-  push:
+  # push:
   workflow_dispatch:
+
 jobs:
   build:
     name: Build Test
@@ -12,13 +13,15 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
       - uses: actions/checkout@v2
+      - uses: actions/cache/restore@kotewar/save-changes
+        id: cache-restore
+        with:
+          path: ${{ github.workspace }}/node_modules
+          key: key-not-present
+          restore-keys: cache-key
       - name: NPM install
         shell: bash
+        if: steps.cache-restore.outputs.cache-hit != 'true'
         run: |
           pwd
           npm install
-      - uses: actions/cache/save@tanuj077/save-changes
-        id: cache-save
-        with:
-          path: ${{ github.workspace }}/node_modules
-          key: cache-key
