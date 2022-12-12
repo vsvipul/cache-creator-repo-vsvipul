@@ -17,8 +17,9 @@ jobs:
         run: |
           pwd
           npm install
-      - uses: actions/cache/save@kotewar/save-changes
+      - uses: actions/cache/save@700-actionscache-granular-cache-control
         id: cache-save
         with:
           path: ${{ github.workspace }}/node_modules
-          restore-key: cache-key
+          key: no-such-key-exists
+          restore-key: restore-key-cannot-be-found
