@@ -12,12 +12,12 @@ jobs:
       id: date
       run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
     - uses: actions/checkout@v2
-    - uses: actions/cache@tanuj077/save-changes
+    - uses: actions/cache@700-actionscache-granular-cache-control
       id: cache
       with:
         path: ${{ github.workspace }}/node_modules
-        key: cachedoesnotexists
-        restore-keys: cache-key
+        key: zxcv
+        restore-keys: cache-key-
     - name: NPM install
       run: |
         pwd
