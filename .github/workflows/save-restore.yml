@@ -17,8 +17,7 @@ jobs:
         id: cache-restore
         with:
           path: ${{ github.workspace }}/node_modules
-          key: doesnotexists
-          restore-keys: cache-key-
+          key: cache-key
       - name: NPM install
         shell: bash
         run: |
@@ -28,7 +27,7 @@ jobs:
         id: cache-save
         with:
           path: ${{ github.workspace }}/node_modules
-          key: ${{ steps.cache-restore.outputs.cache-restore-key }}-try
+          key: ${{ steps.cache-restore.outputs.cache-restore-key }}-try1
       - name: Get Outputs
         run: | 
             echo "${{ steps.cache-restore.outputs.cache-primary-key }}"
