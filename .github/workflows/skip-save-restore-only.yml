@@ -24,3 +24,7 @@ jobs:
         run: |
           pwd
           npm install
+      - name: Get Outputs
+        run: | 
+            echo "${{ steps.cache-restore.outputs.cache-primary-key }}"
+            echo "${{ steps.cache-restore.outputs.cache-restore-key }}"
