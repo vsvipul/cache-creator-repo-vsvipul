@@ -21,4 +21,5 @@ jobs:
         id: cache-save
         with:
           path: ${{ github.workspace }}/node_modules
-          key: cache-key
+          key: no-exact-key-present
+          restore-key: cache-key-
