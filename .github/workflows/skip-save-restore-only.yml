@@ -1,6 +1,6 @@
 name: Skip save, only restore
 on:
-  # push:
+  push:
   workflow_dispatch:
 
 jobs:
@@ -13,11 +13,11 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
       - uses: actions/checkout@v2
-      - uses: actions/cache/restore@kotewar/save-changes
+      - uses: actions/cache/restore@700-actionscache-granular-cache-control
         id: cache-restore
         with:
           path: ${{ github.workspace }}/node_modules
-          key: cache-key
+          key: key-not-present-at-all
       - name: NPM install
         shell: bash
         if: steps.cache-restore.outputs.cache-hit != 'true'
