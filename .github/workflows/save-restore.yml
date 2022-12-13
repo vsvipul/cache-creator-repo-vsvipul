@@ -13,24 +13,24 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
       - uses: actions/checkout@v2
-      - uses: actions/cache/restore@700-actionscache-granular-cache-control
-        id: cache-restore
-        with:
-          path: ${{ github.workspace }}/node_modules
-          key: zxcv
-          restore-keys:
-            key-doesnot-hihakjs
+#       - uses: actions/cache/restore@700-actionscache-granular-cache-control
+#         id: cache-restore
+#         with:
+#           path: ${{ github.workspace }}/node_modules
+#           key: zxcv
+#           restore-keys:
+#             key-doesnot-hihakjs
       - name: NPM install
         shell: bash
         run: |
           pwd
           npm install
-#       - uses: actions/cache/save@700-actionscache-granular-cache-control
-#         id: cache-save
-#         with:
-#           path: ${{ github.workspace }}/node_modules
-#           key: ${{ steps.cache-restore.outputs.cache-primary-key }}-try2
-#       - name: Get Outputs
-#         run: | 
-#             echo "${{ steps.cache-restore.outputs.cache-primary-key }}"
-#             echo "${{ steps.cache-restore.outputs.cache-restore-key }}"
+      - uses: actions/cache/save@700-actionscache-granular-cache-control
+        id: cache-save
+        with:
+          path: ${{ github.workspace }}/node_modules
+          key: abcd
+      - name: Get Outputs
+        run: | 
+            echo "${{ steps.cache-restore.outputs.cache-primary-key }}"
+            echo "${{ steps.cache-restore.outputs.cache-restore-key }}"
