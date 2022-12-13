@@ -17,9 +17,9 @@ jobs:
         id: cache-restore
         with:
           path: ${{ github.workspace }}/node_modules
-          key: key-doesnot-exists-2112312
+          key: key-doesnot-exists-ahf23hl
           restore-keys:
-            key-doesnot
+            key-doesnot-hihakjs
       - name: NPM install
         shell: bash
         run: |
