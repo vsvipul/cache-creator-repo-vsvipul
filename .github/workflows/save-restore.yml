@@ -25,14 +25,12 @@ jobs:
         run: |
           pwd
           npm install
-      - uses: actions/cache/save@700-actionscache-granular-cache-control
-        id: cache-save
-        with:
-          path: ${{ github.workspace }}/node_modules
-          key: ${{ steps.cache-restore.outputs.cache-primary-key }}-try2
-          restore-keys:
-            key-doesnot
-      - name: Get Outputs
-        run: | 
-            echo "${{ steps.cache-restore.outputs.cache-primary-key }}"
-            echo "${{ steps.cache-restore.outputs.cache-restore-key }}"
+#       - uses: actions/cache/save@700-actionscache-granular-cache-control
+#         id: cache-save
+#         with:
+#           path: ${{ github.workspace }}/node_modules
+#           key: ${{ steps.cache-restore.outputs.cache-primary-key }}-try2
+#       - name: Get Outputs
+#         run: | 
+#             echo "${{ steps.cache-restore.outputs.cache-primary-key }}"
+#             echo "${{ steps.cache-restore.outputs.cache-restore-key }}"
