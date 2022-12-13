@@ -27,7 +27,7 @@ jobs:
         id: cache-save
         with:
           path: ${{ github.workspace }}/node_modules
-          key: ${{ steps.cache-restore.outputs.primary-key }}-try1
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}-try1
       - name: Get Outputs
         run: | 
             echo "${{ steps.cache-restore.outputs.cache-primary-key }}"
